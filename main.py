@@ -1,16 +1,3 @@
-# import pandas as pd
-#
-# link = "https://en.wikipedia.org/wiki/List_of_UEFA_European_Championship_penalty_shoot-outs"
-# df = pd.read_html(link, header=0)[0]
-#
-# # df = df.rename(columns={'Populasi[4]':'Populasi', 'Luas (km²)[5]':'Luas'})
-# # df = df[['Kode BPS', 'Nama', 'Ibu kota', 'Populasi', 'Luas', 'Pulau']]
-# print(df.head())
-# print(df.columns)
-# print(df['Winning team.1'])
-#
-# # df.to_csv("Indonesia.csv", sep=',')
-
 import requests
 import urllib.request
 import time

@@ -249,12 +249,11 @@ ax = sns.countplot(data=df_scored_missed, x="scored ?")
 for p in ax.patches:
     ax.annotate("{} ({}%)".format(p.get_height(), format((p.get_height()/194)*100, '.0f')), (p.get_x() + p.get_width() / 2., p.get_height()), ha='center', va='center',
                 xytext=(0, 10), textcoords='offset points')
-# x = 2 * np.arange(10)
-# ax.set_xticks(x)
+
 ax.set(xlabel=None)
 ax.set(ylim=(0, 170))
 plt.tight_layout()
-# plt.show()
+
 
 df_pyramid = df_scored_missed.drop(columns=['Edition', 'PlayerName(Captain)'])
 df_pyramid['missed'] = 0
@@ -266,49 +265,6 @@ df_pyramid['age'] = df_pyramid['age'].apply(str)
 print(df_pyramid)
 
 plt.rcParams["figure.figsize"] = (10, 8)
-
-# #Class
-# AgeClass = ['18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35']
-# print(AgeClass)
-# AgeClass.reverse()
-# print(AgeClass)
-
-# #Chart
-# bar_plot = sns.barplot(x='missed', y='age', data=df_pyramid, order=AgeClass, lw=0, palette="PRGn")
-# bar_plot = sns.barplot(x='scored', y='age', data=df_pyramid, order=AgeClass, lw=0, palette="Spectral")
-# plt.title("Pyramid Age Distribution of Genders", fontsize=22)
-# plt.xlabel("Female/Male")
-# # plt.show()
-
-# # Prepare Data
-# plt.rcParams["figure.figsize"] = (10, 8)
-# df = pd.DataFrame({'Age': ['0-4','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80-84','85-89','90-94','95-99','100+'],
-#                     'Male': [-50000, -61000, -66000, -58000, -44000, -46000, -31000, -23000, -22000, -20000, -17000, -15000, -13000, -11000, -7600, -4600, -1900, -2000, -1160, -1400, -1000],
-#                     'Female': [52367, 65000, 67000, 57000, 45000, 47000, 33000, 26000, 25000, 23000, 20000, 16000, 14000, 10000, 9000, 8600, 3900, 2000, 1200, 1800, 0]})
-#
-# print(df)
-# #Class
-# AgeClass = ['100+','95-99','90-94','85-89','80-84','75-79','70-74','65-69','60-64','55-59','50-54','45-49','40-44','35-39','30-34','25-29','20-24','15-19','10-14','5-9','0-4']
-# #Chart
-# bar_plot = sns.barplot(x='Male', y='Age', data=df, order=AgeClass, lw=0, palette="PRGn")
-# bar_plot = sns.barplot(x='Female', y='Age', data=df, order=AgeClass, lw=0, palette="Spectral")
-# plt.title("Pyramid Age Distribution of Genders", fontsize=22)
-# plt.xlabel("Female/Male")
-# # plt.show()
-
-# plt.subplot(1, 2, 1) # row 1, col 2 index 1
-# g = sns.catplot(x="scored ?", y="age", kind="swarm", data=df_scored_missed).set(xlabel=None)
-# y = np.arange(18, 36)
-# g.set(yticks=y)
-# # plt.tight_layout()
-#
-# plt.subplot(1, 2, 2) # index 2
-# sns.barplot(x="n_kicks", y="game", data=df, ci=None)
-# # x = 2 * np.arange(10)
-# # ax.set_xticks(x)
-# plt.tight_layout()
-#
-# plt.show()
 
 g = sns.catplot(x="scored ?", y="age", kind="box", data=df_scored_missed).set(xlabel=None)
 g.set(yticks=np.arange(18, 36))

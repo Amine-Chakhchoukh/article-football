@@ -245,7 +245,6 @@ print(df_missed)
 df_scored_missed = pd.concat([df_scored, df_missed])
 print(df_scored_missed.sort_values("age"))
 
-sns.set_theme()
 
 f, ax = plt.subplots()
 ax = sns.countplot(data=df_scored_missed, x="scored ?")

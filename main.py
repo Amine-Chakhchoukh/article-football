@@ -158,7 +158,7 @@ df['Round'] = Rounds
 df['game'] = df['Winners'] + ' vs ' + df['Losers'] + ' -- ' + df['Edition'].str[:4]
 df['n_kicks'] = n_kicks
 df = df.iloc[:-4, :]
-print(df)
+print(df.head())
 
 sns.set_theme()
 

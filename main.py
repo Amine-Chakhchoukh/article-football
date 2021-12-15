@@ -179,7 +179,8 @@ df_scorers.set_index(['Edition'], inplace=True)
 df_scorers = df_scorers.apply(lambda x: x.explode())
 df_scorers.reset_index(inplace=True)
 df_scorers = df_scorers[df_scorers['Edition'].astype(int) < 2020]
-print(df_scorers)
+print(df_scorers.head())
+
 x = df_scorers.scorers.unique()
 
 # Table for players who missed: df_losers
@@ -216,7 +217,7 @@ df_full = df_full[df_full['match'] == True]
 df_full['scored ?'] = 'scored'
 df_scored = df_full.drop(columns=['scorers', 'player', 'match']).reset_index(drop=True)
 y = df_full.scorers.unique()
-print(df_scored)
+print(df_scored.head())
 
 main_list = np.setdiff1d(y, x)
 print("diff", main_list)

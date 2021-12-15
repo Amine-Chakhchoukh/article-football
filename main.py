@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
 from urllib.request import urlopen
+import numpy as np
+
 
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -214,7 +216,6 @@ df_scored = df_full.drop(columns=['scorers', 'player', 'match']).reset_index(dro
 y = df_full.scorers.unique()
 print(df_scored)
 
-import numpy as np
 main_list = np.setdiff1d(y, x)
 print("diff", main_list)
 

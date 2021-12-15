@@ -7,7 +7,7 @@ import pandas as pd
 from urllib.request import urlopen
 import numpy as np
 
-
+# for graphs
 import seaborn as sns
 import matplotlib.pyplot as plt
 

@@ -171,7 +171,7 @@ ax.set_xticks(x)
 plt.tight_layout()
 plt.show()
 
-# Table for players who scored
+# Table for players who scored: df_scorers
 df_scorers = df[['Edition']]
 df_scorers['scorers'] = df['Winning team: scorers'] + df['Losing team: scorers']
 df_scorers['Edition'] = df_scorers['Edition'].str[:4].astype(int)
@@ -182,7 +182,7 @@ df_scorers = df_scorers[df_scorers['Edition'].astype(int) < 2020]
 print(df_scorers)
 x = df_scorers.scorers.unique()
 
-# Table for players who missed
+# Table for players who missed: df_losers
 df_losers = df[['Edition']]
 df_losers['losers'] = df['Winning team: losers'] + df['Losing team: losers']
 df_losers['Edition'] = df_losers['Edition'].str[:4].astype(int)
@@ -191,7 +191,7 @@ df_losers = df_losers.apply(lambda x: x.explode())
 df_losers.reset_index(inplace=True)
 df_losers = df_losers[df_losers['Edition'].astype(int) < 2020]
 
-# Players and their age
+# Players and their age: df_age
 df_age = pd.read_csv('players.csv')[['PlayerName(Captain)', 'DateofBirth(age)', 'Year']]
 df_age['age'] = df_age['DateofBirth(age)'].str[-3:-1].astype(int)
 df_age.drop(['DateofBirth(age)'], axis=1, inplace=True)
@@ -203,7 +203,7 @@ df_age['PlayerName(Captain)'] = df_age['PlayerName(Captain)'].replace('Pepe', 'P
 df_age['PlayerName(Captain)'] = df_age['PlayerName(Captain)'].replace('Ricardo', 'Ricardo P.').replace('Ricardo P. Carvalho', 'Ricardo Carvalho').replace('Ricardo P. Cabanas', 'Ricardo Cabanas')
 
 
-# Players in the two tables may have different names
+# Players in the two tables may have different names: let's fix it
 df_scorers['join'] = 1
 df_age['join'] = 1
 

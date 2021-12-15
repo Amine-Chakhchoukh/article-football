@@ -160,14 +160,16 @@ df['n_kicks'] = n_kicks
 df = df.iloc[:-4, :]
 print(df.head())
 
+# Set the seaborn theme
 sns.set_theme()
 
+# Plot n_kicks per game
 f, ax = plt.subplots()
 sns.barplot(x="n_kicks", y="game", data=df, ci=None)
 x = 2 * np.arange(10)
 ax.set_xticks(x)
 plt.tight_layout()
-# plt.show()
+plt.show()
 
 # Table for players who scored
 df_scorers = df[['Edition']]

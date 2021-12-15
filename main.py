@@ -21,7 +21,7 @@ soup = BeautifulSoup(html, 'html.parser')
 tables = soup.find_all('table')
 
 
-# Create array to hold the data we extract
+# Create arrays to hold the data we extract
 Nos = []
 rates = []
 Editions = []
